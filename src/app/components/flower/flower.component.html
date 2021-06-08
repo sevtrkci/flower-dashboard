@@ -1,0 +1,27 @@
+<div class="container">
+  
+    <div class="border border-light p-3 mb-4">
+      <div class="row">
+        <div
+          *ngFor="let flower of flowers"
+          class="col-sm-4 col-sm-4 mypadding"
+        >
+          <div class="card" style="width: 18rem; height: 450px;">
+            <img
+              class="card-img-top"
+              height="200px"
+              
+              src="{{ flower.imageSource }}"
+              alt="Card image cap"
+            />
+            <div class="card-body  d-flex flex-column">
+              <h5 class="card-title">{{ flower.name }}</h5>
+              <div class="cardScrool">{{ flower.description }}</div>
+              <a href="#" class="mt-auto btn btn-primary" style="margin-bottom: 15px !important;">Sepete ekle</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

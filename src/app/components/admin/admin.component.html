@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="border border-light p-3 mb-4">
+      <div class="row">
+        <div
+          *ngFor="let flower of flowers"
+          class="col-sm-4 col-sm-4 mypadding"
+        >
+          <div class="card" style="width: 18rem; height: 460px;">
+            <img
+              class="card-img-top"
+              height="200px"
+              
+              src="{{ flower.imageSource }}"
+              alt="Card image cap"
+            />
+            <div class="card-body  d-flex flex-column">
+
+    
+                    <div >                      
+                      <input [(ngModel)]=flower.name  type="text" class="form-control " style="padding-top: 5px;" id="name" placeholder="Çiçek Adı">
+                      <input [(ngModel)]=flower.description type="text" class="form-control " style="padding-top: 5px;" id="description" placeholder="Açıklama">
+                      <input [(ngModel)]=flower.imageSource type="text" class="form-control " style="padding-top: 5px;" id="imageSource" placeholder="Fotoğraf">
+                      <input [(ngModel)]=flower.oldPrice type="number" class="form-control " style="padding-top: 5px;" id="oldPrice" placeholder="Eski Fiyat">
+                      <input [(ngModel)]=flower.price type="number" class="form-control"  style="padding-top: 5px;" id="price" placeholder="Yeni Fiyat">
+                    </div>
+                    
+
+
+              <div class="bt-group" role="group">
+                        <button class="mt-auto btn btn-primary" (click)="open(contentUpdate, flower)">Düzenle</button>
+                        <button  class="mt-auto btn btn-primary" (click)="open(content, flower)" >Sil</button> 
+                        <a href="#" class="mt-auto btn btn-primary" >Vazgeç</a> 
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Kayıt silinecektir, emin misiniz</h4>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="modal.dismiss()">Hayır</button>
+        <button type="button" class="btn btn-success" (click)="delete()">Evet</button>
+
+    </div>
+  </ng-template>
+
+
+  <ng-template #contentUpdate let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Kayıt güncellencektir, emin misiniz</h4>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="modal.dismiss()">Hayır</button>
+        <button type="button" class="btn btn-success" (click)="edit()">Evet</button>
+
+    </div>
+  </ng-template>
+  
+    

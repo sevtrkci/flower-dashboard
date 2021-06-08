@@ -1,0 +1,15 @@
+
+.col {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+.mypadding{
+    padding-top: 10px;
+    padding-left: 5px;
+}
+.cardScrool{
+  
+    max-height: 100px !important;
+    overflow-y: auto;
+
+}
