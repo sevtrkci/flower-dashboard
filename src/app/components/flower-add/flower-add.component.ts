@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { FlowerService } from 'src/app/service/flower.service';
 
@@ -16,7 +17,8 @@ export class FlowerAddComponent implements OnInit {
 
   constructor(private flowerFormBuiler:FormBuilder,
     private flowerService:FlowerService,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.createFlowerAddForm();
@@ -38,6 +40,7 @@ export class FlowerAddComponent implements OnInit {
     this.flowerService.insertFlower(this.flowerAddForm.value).subscribe(response => {});
     this.flowerAddForm.reset();
     this.toastr.success("Kayıt başarıyla eklendi");
+    this.router.navigate(['/flowers']);
 
   }
 

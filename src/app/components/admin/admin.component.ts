@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { Flower } from 'src/app/model/flower';
@@ -16,7 +17,8 @@ export class AdminComponent implements OnInit {
 
   constructor(private flowerService:FlowerService,
     private modalService: NgbModal,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getFlowers();
@@ -37,6 +39,7 @@ export class AdminComponent implements OnInit {
           this.getFlowers();
           this.toastr.success("Başarıyla güncellendi.");
           this.modalService.dismissAll();
+          this.router.navigate(['/flowers']);
         });
     }
     
@@ -45,6 +48,7 @@ export class AdminComponent implements OnInit {
         this.modalService.dismissAll();
         this.getFlowers();
         this.toastr.success("Başarıyla silindi.");
+        this.router.navigate(['/flowers']);
       });
 
     }
