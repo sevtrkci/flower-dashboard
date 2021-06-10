@@ -33,33 +33,45 @@ export class AdminComponent implements OnInit {
       });
     }
 
-    edit(){
-      this.flowerService.updateFlower(this.selectedFlower).subscribe(response =>
-        {
-          this.getFlowers();
-          this.toastr.success("Başarıyla güncellendi.");
-          this.modalService.dismissAll();
-          this.router.navigate(['/flowers']);
-        });
-    }
-    
-    delete(){
-      this.flowerService.deleteFlower(this.willDeletedId).subscribe(response=> {
-        this.modalService.dismissAll();
+  editApprove(){
+    this.flowerService.updateFlower(this.selectedFlower).subscribe(response =>
+      {
         this.getFlowers();
-        this.toastr.success("Başarıyla silindi.");
+        this.toastr.success("Başarıyla güncellendi.");
+        this.modalService.dismissAll();
         this.router.navigate(['/flowers']);
       });
+  }
 
-    }
+  backoff(){
+    this.getFlowers();
+    this.router.navigate(['/admin']);
+    this.toastr.success("vazgeçildi");
+  }
 
-    open(content: any, flower:Flower) {
-      this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      }, (reason) => {
-        
-      });
-      this.willDeletedId= flower.id;
-      this.selectedFlower = flower;
-    }
+  dismissModal(){
+    this.modalService.dismissAll();
+    this.backoff();
+  }
+    
+  deleteApprove(){
+    this.flowerService.deleteFlower(this.willDeletedId).subscribe(response=> {
+      this.modalService.dismissAll();
+      this.getFlowers();
+      this.toastr.success("Başarıyla silindi.");
+    });
+
+  }
+
+  editOrdelete(content: any, flower:Flower) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    }, (reason) => {
+      
+    });
+    this.willDeletedId= flower.id;
+    this.selectedFlower = flower;
+  }
+
+  
 
 }

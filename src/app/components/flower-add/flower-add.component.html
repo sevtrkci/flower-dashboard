@@ -1,18 +1,15 @@
 <div class="container">
-  
-    
-    <form [formGroup]= "flowerAddForm">
+  <form [formGroup]= "flowerAddForm">
+    <div class="form-group">
+      
+      <input type="text" class="form-control " style="padding-top: 5px;" formControlName="name" placeholder="Çiçek Adı">
+      <input type="text" class="form-control " style="padding-top: 5px;" formControlName="description" placeholder="Açıklama">
+      <input type="text" class="form-control " style="padding-top: 5px;" formControlName="imageSource" placeholder="Fotoğraf">
+      <input type="number" class="form-control " style="padding-top: 5px;" formControlName="oldPrice" placeholder="Eski Fiyat">
+      <input type="number" class="form-control"  style="padding-top: 5px;" formControlName="price" placeholder="Yeni Fiyat">
+    </div>
         
-        <div class="form-group">
-         
-          <input type="text" class="form-control " style="padding-top: 5px;" formControlName="name" placeholder="Çiçek Adı">
-          <input type="text" class="form-control " style="padding-top: 5px;" formControlName="description" placeholder="Açıklama">
-          <input type="text" class="form-control " style="padding-top: 5px;" formControlName="imageSource" placeholder="Fotoğraf">
-          <input type="number" class="form-control " style="padding-top: 5px;" formControlName="oldPrice" placeholder="Eski Fiyat">
-          <input type="number" class="form-control"  style="padding-top: 5px;" formControlName="price" placeholder="Yeni Fiyat">
-        </div>
-        
-        <button type="submit" class="btn btn-primary padding-top-5" (click)="add()">Kayıt Ekle</button>
-      </form>
-      </div>
+    <button type="submit" class="btn btn-primary padding-top-5" (click)="add()">Kayıt Ekle</button>
+  </form>
+</div>
     

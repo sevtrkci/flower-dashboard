@@ -27,9 +27,9 @@
 
 
               <div class="bt-group" role="group">
-                        <button class="mt-auto btn btn-primary" (click)="open(contentUpdate, flower)">Düzenle</button>
-                        <button  class="mt-auto btn btn-primary" (click)="open(content, flower)" >Sil</button> 
-                        <a href="#" class="mt-auto btn btn-primary" >Vazgeç</a> 
+                        <button class="mt-auto btn btn-primary" (click)="editOrdelete(contentUpdate, flower)">Düzenle</button>
+                        <button  class="mt-auto btn btn-primary" (click)="editOrdelete(content, flower)" >Sil</button> 
+                        <button class="mt-auto btn btn-primary"  (click)="backoff()" >Vazgeç</button> 
               </div>
 
             </div>
@@ -42,12 +42,12 @@
 
   <ng-template #content let-modal>
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Kayıt silinecektir, emin misiniz</h4>
+      <h4 class="modal-title" id="modal-basic-title">Kayıt silinecektir, emin misiniz?</h4>
     </div>
 
     <div class="modal-footer">
-        <button type="button" class="btn btn-danger" (click)="modal.dismiss()">Hayır</button>
-        <button type="button" class="btn btn-success" (click)="delete()">Evet</button>
+        <button type="button" class="btn btn-danger" (click)="dismissModal()">Hayır</button>
+        <button type="button" class="btn btn-success" (click)="deleteApprove()">Evet</button>
 
     </div>
   </ng-template>
@@ -55,12 +55,12 @@
 
   <ng-template #contentUpdate let-modal>
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Kayıt güncellencektir, emin misiniz</h4>
+      <h4 class="modal-title" id="modal-basic-title">Kayıt güncellenecektir, emin misiniz?</h4>
     </div>
 
     <div class="modal-footer">
-        <button type="button" class="btn btn-danger" (click)="modal.dismiss()">Hayır</button>
-        <button type="button" class="btn btn-success" (click)="edit()">Evet</button>
+        <button type="button" class="btn btn-danger" (click)="dismissModal()">Hayır</button>
+        <button type="button" class="btn btn-success" (click)="editApprove()">Evet</button>
 
     </div>
   </ng-template>

@@ -12,7 +12,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminComponent } from './components/admin/admin.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';    
-import { ToastrModule } from 'ngx-toastr';  
+import { ToastrModule } from 'ngx-toastr';
+import { SearchComponent } from './components/search/search.component';
+import { HomeComponent } from './components/home/home.component';  
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { ToastrModule } from 'ngx-toastr';
     FlowerComponent,
     HeaderNaviComponent,
     FlowerAddComponent,
-    AdminComponent
+    AdminComponent,
+    SearchComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
